@@ -3,7 +3,7 @@ package Ventanas;
 
 
 public class Principal extends javax.swing.JFrame {
-    private IngresoEmpresa ventana1;
+    private IngresoProveedor ventana1;
     private ConsultaProveedor ventana2;
     public Principal() {
         initComponents();
@@ -87,7 +87,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        ventana1=new IngresoEmpresa();
+        ventana1=new IngresoProveedor();
         this.dispose();
         ventana1.show();
     }//GEN-LAST:event_jButton1ActionPerformed
