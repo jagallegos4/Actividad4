@@ -14,8 +14,10 @@ public class ListaProveedor {
         proveedores=new ArrayList();
     }
     private ArrayList<Proveedor> proveedores;
-    public void guardarVendedor(String ruc, String rSocial, String tProducto, String vendedor){
+    //private ArrayList<Vendedor> vendedor;
+    public void guardarProveedor(String ruc, String rSocial, String tProducto, Vendedor vendedor){
         Proveedor proveedor=new Proveedor(ruc, rSocial, tProducto, vendedor);
         proveedores.add(proveedor);
     }
+    
 }

@@ -1,10 +1,22 @@
 
 package Ejecuta;
 
-public class Proveedor {
-    private String ruc, rSocial, tProducto, vendedor;
+//import java.util.ArrayList;
 
-    public Proveedor(String ruc, String rSocial, String tProducto, String vendedor) {
+public class Proveedor {
+    private String ruc, rSocial, tProducto;
+    private Vendedor vendedor;
+    public static Proveedor instancia;
+    public static Proveedor obtenerInstancia(){
+        if(instancia==null)
+            instancia=new Proveedor();
+            return instancia;        
+    }
+    private Proveedor(){
+        //vendedor=new ArrayList();
+    }
+
+    public Proveedor(String ruc, String rSocial, String tProducto, Vendedor vendedor) {
         this.ruc = ruc;
         this.rSocial = rSocial;
         this.tProducto = tProducto;
@@ -23,9 +35,7 @@ public class Proveedor {
         return tProducto;
     }
 
-    public String getVendedor() {
+    public Vendedor getVendedor() {
         return vendedor;
-    }
-    
-    
+    }    
 }

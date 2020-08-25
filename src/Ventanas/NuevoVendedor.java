@@ -2,7 +2,6 @@
 package Ventanas;
 
 import Ejecuta.ListaVendedor;
-import Ejecuta.Vendedor;
 import javax.swing.JOptionPane;
 
 
@@ -12,6 +11,7 @@ public class NuevoVendedor extends javax.swing.JFrame {
 
     public NuevoVendedor() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     public void limpiar(){
     jTextField1.setText("");

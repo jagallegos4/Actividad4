@@ -5,8 +5,10 @@ package Ventanas;
 public class Principal extends javax.swing.JFrame {
     private IngresoProveedor ventana1;
     private ConsultaProveedor ventana2;
+    
     public Principal() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
