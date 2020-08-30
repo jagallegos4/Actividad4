@@ -69,7 +69,6 @@ public class Vendedor {
 
     @Override
     public String toString() {
-        return this.nombres+" "+this.apellidos;
+        return "Nombre: "+this.nombres+"Apellido: "+this.apellidos;
     }
-    
 }

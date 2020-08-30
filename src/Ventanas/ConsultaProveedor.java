@@ -1,12 +1,15 @@
 
 package Ventanas;
 
-import Ejecuta.Vendedor;
+import Ejecuta.ListaProveedor;
+import Ejecuta.Proveedor;
 import javax.swing.table.DefaultTableModel;
 
 public class ConsultaProveedor extends javax.swing.JFrame {
     private Principal principal;
     private DefaultTableModel modeloTabla = new DefaultTableModel();
+    private Proveedor proveedor;
+    private ListaProveedor listaP;
 
     public ConsultaProveedor() {
         agregarTabla();
@@ -17,6 +20,7 @@ public class ConsultaProveedor extends javax.swing.JFrame {
         modeloTabla.addColumn("Razón Social");
         modeloTabla.addColumn("RUC");
         modeloTabla.addColumn("Producto Ofrecido");
+        modeloTabla.addColumn("Cédula");
         modeloTabla.addColumn("Nombres");
         modeloTabla.addColumn("Apellidos");
         modeloTabla.addColumn("Teléfono");
@@ -31,7 +35,7 @@ public class ConsultaProveedor extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        botonAtras = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,11 +49,11 @@ public class ConsultaProveedor extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel2.setText("Su Economía");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Atrás");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonAtras.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        botonAtras.setText("Atrás");
+        botonAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonAtrasActionPerformed(evt);
             }
         });
 
@@ -83,7 +87,7 @@ public class ConsultaProveedor extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(botonAtras)
                 .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
@@ -97,7 +101,7 @@ public class ConsultaProveedor extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(botonAtras)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -105,16 +109,23 @@ public class ConsultaProveedor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
+        
         principal = new Principal();
         principal.show();
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonAtrasActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        //Vendedor v = 
+        proveedor = Proveedor.obtenerInstancia();
+        Proveedor p = listaP.obtenerP();
+        String ruc = p.getRuc();
+        String rSocial = p.getrSocial();
+        String tipoP = p.gettProducto();
+        
+        String [] provedores = {ruc,rSocial,tipoP};
+        modeloTabla.addRow(provedores);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -156,7 +167,7 @@ public class ConsultaProveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botonAtras;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

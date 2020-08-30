@@ -14,11 +14,26 @@ public class ListaVendedor {
     private ListaVendedor(){
         vendedores=new ArrayList();
     }
+    
+    public ArrayList<Vendedor> getVendedores() {
+        return vendedores;
+    }
+    
     private ArrayList<Vendedor> vendedores;
     public void guardarVendedor(String cedula, String nombre, String apellido, String genero, String telefono){
         Vendedor vendedor=new Vendedor(cedula,nombre,apellido,genero, telefono);
         vendedores.add(vendedor);
     }
+    
+    public Vendedor obtenerV(){
+        Vendedor v = new Vendedor("", "", "", "", "");
+        for(int i=0;i<vendedores.size();i++){
+            v = vendedores.get(i);
+        }
+        //v= vendedores.get(1);
+        return v;
+    }
+    
     public boolean validarCedula(String cedula){
         int capCaracter, suma = 0, acum=0, resta=0;
         for(int i=0;i<cedula.length()-1;i++){

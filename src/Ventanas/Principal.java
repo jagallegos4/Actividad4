@@ -22,7 +22,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ingresarProveedor = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -34,12 +34,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 48)); // NOI18N
         jLabel2.setText("SU ECONOMÍA");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Ingreso Datos Proveedor");
-        jButton1.setMaximumSize(new java.awt.Dimension(207, 25));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ingresarProveedor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ingresarProveedor.setText("Ingreso Datos Proveedor");
+        ingresarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ingresarProveedorActionPerformed(evt);
             }
         });
 
@@ -67,7 +66,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(129, 129, 129)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ingresarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -78,21 +77,21 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(58, 58, 58)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addComponent(ingresarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ingresarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarProveedorActionPerformed
         
         ventana1=new IngresoProveedor();
         this.dispose();
         ventana1.show();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ingresarProveedorActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
@@ -137,7 +136,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ingresarProveedor;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
