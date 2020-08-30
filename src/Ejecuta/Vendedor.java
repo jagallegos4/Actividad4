@@ -1,11 +1,8 @@
 
 package Ejecuta;
 
-import java.util.ArrayList;
-
 public class Vendedor {
     private String cedula, nombres, apellidos, genero, telefono;
-    private ArrayList<Vendedor> vendedor;
     public static Vendedor instancia;
     public static Vendedor obtenerInstancia(){
         if(instancia==null)
@@ -14,7 +11,7 @@ public class Vendedor {
     }
     
     public Vendedor(){
-        vendedor=new ArrayList();
+        
     }
 
     public Vendedor(String cedula, String nombres, String apellidos, String genero, String telefono) {
@@ -65,10 +62,5 @@ public class Vendedor {
             return true;
         }else           
         return false;
-    }
-
-    @Override
-    public String toString() {
-        return "Nombre: "+this.nombres+"Apellido: "+this.apellidos;
     }
 }

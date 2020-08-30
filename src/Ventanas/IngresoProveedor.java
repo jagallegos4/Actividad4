@@ -2,40 +2,35 @@
 package Ventanas;
 
 import Ejecuta.ListaProveedor;
-import Ejecuta.ListaVendedor;
 import Ejecuta.Vendedor;
-import java.util.ArrayList;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public final class IngresoProveedor extends javax.swing.JFrame {
     
-    private DefaultComboBoxModel<Vendedor> modeloCombo = new DefaultComboBoxModel<Vendedor>();
-    
+    DefaultTableModel modeloTablaV = new DefaultTableModel();
     private NuevoVendedor ventana3;
     private Principal principal;
     private ListaProveedor listaP;
-    private ListaVendedor listaV;
-    //private ArrayList<Vendedor> listaVen = new ArrayList();
-    private Vendedor ven;
-    public IngresoProveedor() {        
+    private Vendedor vendedor;
+    public IngresoProveedor() {
+        agregarTabla();
         initComponents();
-        //llenarComboBox();
         setLocationRelativeTo(null);        
     }
-    
-    /*public void llenarComboBox(){        
-        //ven=listaV.getVendedores();
-        Vendedor lista = listaV.obtenerV();
-        //for(int i=0;i<listaVen.size();i++){
-          //  lista=listaVen.get(i);
-        //}
-        modeloCombo.addElement(lista);
-    }*/
+    private void  agregarTabla(){        
+        modeloTablaV.addColumn("Cédula");
+        modeloTablaV.addColumn("Nombres");
+        modeloTablaV.addColumn("Apellidos");
+        modeloTablaV.addColumn("Teléfono");
+        modeloTablaV.addColumn("Genero");
+    }
     
     public void limpiar(){
     textRuc.setText("");
-    jTextField2.setText("");
+    textRsocial.setText("");
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -48,14 +43,15 @@ public final class IngresoProveedor extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         comboProducto = new javax.swing.JComboBox<>();
         textRuc = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        textRsocial = new javax.swing.JTextField();
         botonGuardar = new javax.swing.JButton();
         botonNVendedor = new javax.swing.JButton();
         botonAtras = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaV = new javax.swing.JTable();
-        importarV = new javax.swing.JButton();
+        botonImportarV = new javax.swing.JButton();
+        textNombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,9 +88,9 @@ public final class IngresoProveedor extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        textRsocial.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField2KeyTyped(evt);
+                textRsocialKeyTyped(evt);
             }
         });
 
@@ -124,23 +120,36 @@ public final class IngresoProveedor extends javax.swing.JFrame {
 
         jLabel7.setText("Tipo de Producto:");
 
-        tablaV.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Cédula", "Nombres", "Apellidos", "Genero", "Teléfono"
+        tablaV.setModel(modeloTablaV);
+        /*ListSelectionListener oyenteSeleccion = new ListSelectionListener(){
+            @Override
+            public void valueChanged(ListSelectionEvent e){
+                if(e.getValueIsAdjusting()){
+                    int filaSeleccionada = tablaV.getSelectedRow();
+
+                    String cedula = (String)modeloTablaV.getValueAt(filaSeleccionada, 0);
+                    String nombre = (String)modeloTablaV.getValueAt(filaSeleccionada, 1);
+                    String apellido = (String)modeloTablaV.getValueAt(filaSeleccionada, 2);
+                    String genero = (String)modeloTablaV.getValueAt(filaSeleccionada, 3);
+                    String telefono = (String)modeloTablaV.getValueAt(filaSeleccionada, 4);
+
+                    textNombre.setText(nombre);
+                }
             }
-        ));
+        };
+
+        tablaV.getSelectionModel().addListSelectionListener(oyenteSeleccion);*/
+        tablaV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaVMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaV);
 
-        importarV.setText("Importar Datos");
-        importarV.addActionListener(new java.awt.event.ActionListener() {
+        botonImportarV.setText("Importar Datos");
+        botonImportarV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                importarVActionPerformed(evt);
+                botonImportarVActionPerformed(evt);
             }
         });
 
@@ -178,11 +187,14 @@ public final class IngresoProveedor extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(importarV)
+                            .addComponent(botonImportarV)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                                .addComponent(textRsocial, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                                 .addComponent(textRuc, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(comboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(comboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -196,7 +208,7 @@ public final class IngresoProveedor extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textRsocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -208,10 +220,12 @@ public final class IngresoProveedor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(importarV))
+                    .addComponent(botonImportarV))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonGuardar)
                     .addComponent(botonNVendedor)
@@ -250,24 +264,37 @@ public final class IngresoProveedor extends javax.swing.JFrame {
         if (c<'0'||c>'9') evt.consume();
     }//GEN-LAST:event_textRucKeyTyped
 
-    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+    private void textRsocialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textRsocialKeyTyped
         
         char c= evt.getKeyChar();
         if ((c<'a'||c>'z')&&(c<'A'||c>'Z')) evt.consume();
-    }//GEN-LAST:event_jTextField2KeyTyped
+    }//GEN-LAST:event_textRsocialKeyTyped
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         
-        /*listaP = ListaProveedor.obtenerInstancia();
-        Vendedor v = (Vendedor)jComboBox2.getSelectedItem();
-        listaP.guardarProveedor(jTextField1.getText(), jTextField2.getText(),
-                jComboBox1.getSelectedItem().toString(),v);
-        limpiar();*/
+        listaP = ListaProveedor.obtenerInstancia();        
+        listaP.guardarProveedor(textRuc.getText(), textRsocial.getText(),
+                comboProducto.getSelectedItem().toString(),vendedor);
+        JOptionPane.showMessageDialog(null, "Proveedor Ingresado Correctamente");
+        limpiar();
     }//GEN-LAST:event_botonGuardarActionPerformed
 
-    private void importarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarVActionPerformed
-        tablaV.setModel(NuevoVendedor.modeloTablaV);
-    }//GEN-LAST:event_importarVActionPerformed
+    private void botonImportarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImportarVActionPerformed
+        tablaV.setModel(NuevoVendedor.modeloTablaV);//copia tabla nuevo vendedro a proveedor
+        
+    }//GEN-LAST:event_botonImportarVActionPerformed
+
+    private void tablaVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVMouseClicked
+        // TODO add your handling code here:
+        int seleccion = tablaV.rowAtPoint(evt.getPoint());
+        String cedula = String.valueOf(tablaV.getValueAt(seleccion, 0));
+        String nombre = String.valueOf(tablaV.getValueAt(seleccion, 1));
+        String apellido = String.valueOf(tablaV.getValueAt(seleccion, 2));
+        String genero = String.valueOf(tablaV.getValueAt(seleccion, 3));
+        String telefono = String.valueOf(tablaV.getValueAt(seleccion, 4));
+        vendedor=new Vendedor(cedula, nombre, apellido, genero, telefono);
+        textNombre.setText(cedula);
+    }//GEN-LAST:event_tablaVMouseClicked
 
     /**
      * @param args the command line arguments
@@ -308,9 +335,9 @@ public final class IngresoProveedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAtras;
     private javax.swing.JButton botonGuardar;
+    private javax.swing.JButton botonImportarV;
     private javax.swing.JButton botonNVendedor;
     private javax.swing.JComboBox<String> comboProducto;
-    private javax.swing.JButton importarV;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -319,8 +346,9 @@ public final class IngresoProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTable tablaV;
+    private javax.swing.JTextField textNombre;
+    private javax.swing.JTextField textRsocial;
     private javax.swing.JTextField textRuc;
     // End of variables declaration//GEN-END:variables
 }

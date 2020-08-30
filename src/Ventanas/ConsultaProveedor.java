@@ -1,15 +1,17 @@
 
 package Ventanas;
 
-import Ejecuta.ListaProveedor;
+//import Ejecuta.ListaProveedor;
 import Ejecuta.Proveedor;
+import Ejecuta.Vendedor;
 import javax.swing.table.DefaultTableModel;
 
 public class ConsultaProveedor extends javax.swing.JFrame {
     private Principal principal;
     private DefaultTableModel modeloTabla = new DefaultTableModel();
     private Proveedor proveedor;
-    private ListaProveedor listaP;
+    //private Vendedor vendedor;
+    //private ListaProveedor listaP;
 
     public ConsultaProveedor() {
         agregarTabla();
@@ -118,12 +120,16 @@ public class ConsultaProveedor extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         proveedor = Proveedor.obtenerInstancia();
-        Proveedor p = listaP.obtenerP();
-        String ruc = p.getRuc();
-        String rSocial = p.getrSocial();
-        String tipoP = p.gettProducto();
+        String rSocial = proveedor.getrSocial();
+        String ruc = proveedor.getRuc();
+        String producto = proveedor.gettProducto();
+        String cedula = proveedor.getVendedor().getCedula();
+        String nombre = proveedor.getVendedor().getNombres();
+        String apellido = proveedor.getVendedor().getApellidos();
+        String genero = proveedor.getVendedor().getGenero();
+        String telefono = proveedor.getVendedor().getTelefono();
         
-        String [] provedores = {ruc,rSocial,tipoP};
+        String [] provedores = {rSocial,ruc,producto,cedula,nombre,apellido,genero,telefono};
         modeloTabla.addRow(provedores);
         
     }//GEN-LAST:event_jButton2ActionPerformed

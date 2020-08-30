@@ -3,6 +3,8 @@ package Ventanas;
 
 import Ejecuta.ListaVendedor;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -48,15 +50,16 @@ public class NuevoVendedor extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        botonGuardar = new javax.swing.JButton();
         textCedula = new javax.swing.JTextField();
         textNombre = new javax.swing.JTextField();
         textApellido = new javax.swing.JTextField();
         textTelf = new javax.swing.JTextField();
         comboGenero = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
+        botonAtras = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaVendedor = new javax.swing.JTable();
+        textNombreV = new javax.swing.JTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -115,11 +118,11 @@ public class NuevoVendedor extends javax.swing.JFrame {
 
         jLabel7.setText("Teléfono:");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonGuardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        botonGuardar.setText("Guardar");
+        botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonGuardarActionPerformed(evt);
             }
         });
 
@@ -154,15 +157,33 @@ public class NuevoVendedor extends javax.swing.JFrame {
 
         comboGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("Atrás");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonAtras.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        botonAtras.setText("Atrás");
+        botonAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonAtrasActionPerformed(evt);
             }
         });
 
         tablaVendedor.setModel(modeloTablaV);
+        ListSelectionListener oyenteSeleccion = new ListSelectionListener(){
+            @Override
+            public void valueChanged(ListSelectionEvent e){
+                if(e.getValueIsAdjusting()){
+                    int filaSeleccionada = tablaVendedor.getSelectedRow();
+
+                    String cedula = (String)modeloTablaV.getValueAt(filaSeleccionada, 0);
+                    String nombre = (String)modeloTablaV.getValueAt(filaSeleccionada, 1);
+                    String apellido = (String)modeloTablaV.getValueAt(filaSeleccionada, 2);
+                    String genero = (String)modeloTablaV.getValueAt(filaSeleccionada, 3);
+                    String telefono = (String)modeloTablaV.getValueAt(filaSeleccionada, 4);
+
+                    textNombreV.setText(nombre);
+                }
+            }
+        };
+
+        tablaVendedor.getSelectionModel().addListSelectionListener(oyenteSeleccion);
         jScrollPane4.setViewportView(tablaVendedor);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -176,10 +197,6 @@ public class NuevoVendedor extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1)
-                                        .addGap(277, 277, 277)
-                                        .addComponent(jButton2))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel3)
                                         .addGroup(layout.createSequentialGroup()
@@ -194,7 +211,16 @@ public class NuevoVendedor extends javax.swing.JFrame {
                                                 .addComponent(textCedula)
                                                 .addComponent(textNombre)
                                                 .addComponent(textTelf)
-                                                .addComponent(comboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                .addComponent(comboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(botonGuardar)
+                                                .addGap(277, 277, 277))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(textNombreV, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(88, 88, 88)))
+                                        .addComponent(botonAtras))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(90, 90, 90)
                                 .addComponent(jLabel2))
@@ -234,10 +260,12 @@ public class NuevoVendedor extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addGap(18, 18, 18)
+                .addComponent(textNombreV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(botonGuardar)
+                    .addComponent(botonAtras))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -248,7 +276,7 @@ public class NuevoVendedor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textTelfActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         
         listaV = ListaVendedor.obtenerInstancia();
         boolean validar = listaV.validarCedula(textCedula.getText());
@@ -272,14 +300,14 @@ public class NuevoVendedor extends javax.swing.JFrame {
             this.dispose();
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonGuardarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
 
         ingresoP = new IngresoProveedor();
         ingresoP.show();
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonAtrasActionPerformed
 
     private void textCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCedulaKeyTyped
         // TODO add your handling code here:
@@ -337,9 +365,9 @@ public class NuevoVendedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAtras;
+    private javax.swing.JButton botonGuardar;
     private javax.swing.JComboBox<String> comboGenero;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -358,6 +386,7 @@ public class NuevoVendedor extends javax.swing.JFrame {
     private javax.swing.JTextField textApellido;
     private javax.swing.JTextField textCedula;
     private javax.swing.JTextField textNombre;
+    private javax.swing.JTextField textNombreV;
     private javax.swing.JTextField textTelf;
     // End of variables declaration//GEN-END:variables
 }

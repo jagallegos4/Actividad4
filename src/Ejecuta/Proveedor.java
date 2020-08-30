@@ -13,7 +13,7 @@ public class Proveedor {
             return instancia;        
     }
     private Proveedor(){
-        //vendedor=new ArrayList();
+        
     }
 
     public Proveedor(String ruc, String rSocial, String tProducto, Vendedor vendedor) {
