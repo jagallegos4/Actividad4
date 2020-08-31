@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -88,59 +88,44 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="textApellido" pref="400" max="32767" attributes="0"/>
-                                              <Component id="textCedula" max="32767" attributes="0"/>
-                                              <Component id="textNombre" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="textTelf" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="comboGenero" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="botonGuardar" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="textNombreV" min="-2" pref="248" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Component id="botonAtras" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="textApellido" pref="400" max="32767" attributes="0"/>
+                                      <Component id="textCedula" max="32767" attributes="0"/>
+                                      <Component id="textNombre" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="textTelf" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="comboGenero" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="botonGuardar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
+                              <Component id="botonAtras" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="79" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane4" alignment="1" pref="592" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" alignment="0" pref="582" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -149,11 +134,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textCedula" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -179,10 +162,8 @@
                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane4" min="-2" pref="112" max="-2" attributes="0"/>
+              <Component id="jScrollPane4" min="-2" pref="156" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="textNombreV" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="botonGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botonAtras" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -198,15 +179,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="48" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="COMERCIAL"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="48" style="3"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/sueconomia.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="SU ECONOMIA"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -310,12 +285,10 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="ListSelectionListener oyenteSeleccion = new ListSelectionListener(){&#xd;&#xa;    @Override&#xd;&#xa;    public void valueChanged(ListSelectionEvent e){&#xd;&#xa;        if(e.getValueIsAdjusting()){&#xd;&#xa;            int filaSeleccionada = tablaVendedor.getSelectedRow();&#xd;&#xa;            &#xd;&#xa;            String cedula = (String)modeloTablaV.getValueAt(filaSeleccionada, 0);&#xd;&#xa;            String nombre = (String)modeloTablaV.getValueAt(filaSeleccionada, 1);&#xd;&#xa;            String apellido = (String)modeloTablaV.getValueAt(filaSeleccionada, 2);&#xd;&#xa;            String genero = (String)modeloTablaV.getValueAt(filaSeleccionada, 3);&#xd;&#xa;            String telefono = (String)modeloTablaV.getValueAt(filaSeleccionada, 4);&#xd;&#xa;            &#xd;&#xa;            textNombreV.setText(nombre);&#xd;&#xa;        }&#xd;&#xa;    }&#xd;&#xa;};&#xd;&#xa;&#xd;&#xa;tablaVendedor.getSelectionModel().addListSelectionListener(oyenteSeleccion);&#xd;&#xa;"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="/*ListSelectionListener oyenteSeleccion = new ListSelectionListener(){&#xd;&#xa;    @Override&#xd;&#xa;    public void valueChanged(ListSelectionEvent e){&#xd;&#xa;        if(e.getValueIsAdjusting()){&#xd;&#xa;            int filaSeleccionada = tablaVendedor.getSelectedRow();&#xd;&#xa;            &#xd;&#xa;            String cedula = (String)modeloTablaV.getValueAt(filaSeleccionada, 0);&#xd;&#xa;            String nombre = (String)modeloTablaV.getValueAt(filaSeleccionada, 1);&#xd;&#xa;            String apellido = (String)modeloTablaV.getValueAt(filaSeleccionada, 2);&#xd;&#xa;            String genero = (String)modeloTablaV.getValueAt(filaSeleccionada, 3);&#xd;&#xa;            String telefono = (String)modeloTablaV.getValueAt(filaSeleccionada, 4);&#xd;&#xa;            &#xd;&#xa;            textNombreV.setText(nombre);&#xd;&#xa;        }&#xd;&#xa;    }&#xd;&#xa;};&#xd;&#xa;&#xd;&#xa;tablaVendedor.getSelectionModel().addListSelectionListener(oyenteSeleccion);&#xd;&#xa;*/"/>
           </AuxValues>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="textNombreV">
-    </Component>
   </SubComponents>
 </Form>
